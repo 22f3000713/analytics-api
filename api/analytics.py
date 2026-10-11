@@ -1,9 +1,9 @@
-from fastapi import FastAPI, Request, HTTPException
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 API_KEY = "ak_z12wilxt7vvvlk42p60ju4f0"
-EMAIL = "22f3000713@ds.study.iitm.ac.in"  # Replace with your real email
+EMAIL = "22f3000713@ds.study.iitm.ac.in"  # Replace with your real logged-in email
 
 app = FastAPI()
 
@@ -16,7 +16,6 @@ app.add_middleware(
 
 @app.post("/analytics")
 async def analytics(request: Request):
-    # Check authentication FIRST
     key = request.headers.get("x-api-key")
 
     if key != API_KEY:
@@ -25,7 +24,6 @@ async def analytics(request: Request):
             content={"detail": "Unauthorized"}
         )
 
-    # Only parse the body after authentication succeeds
     try:
         body = await request.json()
         events = body.get("events", [])
