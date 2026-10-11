@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/analytics",
+      "destination": "/api/analytics"
+    }
+  ]
+}
