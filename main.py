@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 API_KEY = "ak_z12wilxt7vvvlk42p60ju4f0"
-EMAIL = "your-email@example.com"  # Replace with your actual login email
+EMAIL = "22f3000713@ds.study.iitm.ac.in"  # Replace with your actual login email
 
 app = FastAPI()
 
